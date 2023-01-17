@@ -1,0 +1,42 @@
+﻿<Window x:Class="ExcelWPF.Views.Pages.DiagrammPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExcelWPF.Views.Pages"
+       xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+        mc:Ignorable="d"
+        Title="DiagrammPage" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Пользователь: " Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right"></TextBlock>
+                <ComboBox x:Name="ComboUsers" SelectionChanged="ComboUsers_SelectionChanged" SelectedIndex="0" Width="175" Margin="5" DisplayMemberPath="last_name"></ComboBox>
+                <TextBlock Text="Тип диаграммы: " Width="125" Margin="5" VerticalAlignment="Center" TextAlignment="Right">
+
+                </TextBlock>
+                <ComboBox x:Name="ComboChartTypes" SelectionChanged="ComboUsers_SelectionChanged" SelectedIndex="0" Width="175" Margin="5"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Экспорт" Width="175" Margin="5" x:Name="ExportButton" Click="ExportButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+       
+        <WindowsFormsHost Grid.Row="1">
+            <charts:Chart x:Name="ChartPayments">
+                <charts:Chart.Legends>
+                    <charts:Legend>
+
+                    </charts:Legend>
+                </charts:Chart.Legends>
+            </charts:Chart>
+        </WindowsFormsHost>
+
+
+    </Grid>
+</Window>
